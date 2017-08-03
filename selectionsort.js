@@ -20,10 +20,10 @@ function swap (arr, i, j){
   arr[i] = arr[j]
   arr[j] = t
 }
+function msg (str) {
+  console.log(str)
+}
 var x = "blahblahblah"
 a = x.split('')
 selectionSort(a)
 msg(a)
-function msg (str) {
-  console.log(str)
-}
