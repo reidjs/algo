@@ -8,11 +8,8 @@ function msg (str) {
   str.toString()
   console.log(str)
 }
-var arr = "MERGESORTEXAMPLE".split('')
-
-
 //take two arrays and merge them into sorted order
-//assumes that the two halves are already sorted
+//expects that the two halves are already sorted!
 function merge(arr, lo, mid, hi) {
   lefthalf = arr.slice(lo,mid)
   righthalf = arr.slice(mid,hi)
@@ -39,6 +36,6 @@ function merge(arr, lo, mid, hi) {
 }
 //sort the left half
 
-a = "EEGMRACERT".split('')
+a = "EEGDMRACEFRT".split('')
 mid = Math.floor(a.length/2)
 merge(a, 0, mid, a.length)
