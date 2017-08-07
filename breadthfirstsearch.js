@@ -5,6 +5,7 @@ var count = 0
 function Vertex() {
   this.adj = [] //adjacent Vertexs
   this.marked = false
+  this.edgeTo = null
   this.connect = function(vertex) {
     if (vertex === undefined)
       return false;
@@ -19,6 +20,19 @@ function Vertex() {
       if (!this.adj[i].marked)
         this.adj[i].dfs()
     }
+  }
+  //UNFINISHED
+  //breadth first search starting at this Vertex
+  this.bfs = function() {
+    //remove next vertex v from queue
+    //put onto queue all unmarked vertices that are adjacent to v and mark them
+    queue = []
+    this.marked = true
+    this.adj.forEach(function(element){
+      element.marked = true
+      element.edgeTo = this
+      queue.push(element)
+    })
   }
 }
 zero = new Vertex()
@@ -40,5 +54,5 @@ three.connect(four)
 three.connect(five)
 
 
-zero.dfs()
-p(count)
+zero.bfs()
+//p(zero)
