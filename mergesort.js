@@ -34,8 +34,8 @@ function merge(arr, lo, mid, hi) {
   }
   msg(aux)
 }
-//sort the left half
-
+//Divide the array into two parts and then sort them independently and merge the resulting
+//arrays into the result
 a = "EEGDMRACEFRT".split('')
 mid = Math.floor(a.length/2)
 merge(a, 0, mid, a.length)

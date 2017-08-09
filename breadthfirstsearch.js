@@ -2,8 +2,9 @@
 //visit recursively all Vertexs that are adjacent not marked
 p = console.log
 var count = 0
-function Vertex() {
+function Vertex(num) {
   this.adj = [] //adjacent Vertexs
+  this.num = num
   this.marked = false
   this.edgeTo = null
   this.connect = function(vertex) {
@@ -24,23 +25,36 @@ function Vertex() {
   //UNFINISHED
   //breadth first search starting at this Vertex
   this.bfs = function() {
-    //remove next vertex v from queue
-    //put onto queue all unmarked vertices that are adjacent to v and mark them
-    queue = []
     this.marked = true
-    this.adj.forEach(function(element){
-      element.marked = true
-      element.edgeTo = this
-      queue.push(element)
-    })
+    var queue = [this]
+    while (queue.length > 0) {
+      //remove next vertex v from queue
+      var nextElementFromQueue = queue.shift()
+      nextElementFromQueue.adj.forEach(function(element) {
+        //put onto the queue all unmarked elements and mark them
+        if (!element.marked){
+          element.marked = true
+          queue.push(element)
+        }
+      })
+      //for printing out the queue to check for successful implementation
+      var queueString = ""
+      queue.forEach(function(element) {
+        queueString += String(element.num) + ", "
+      })
+      p(queueString)
+    }
+    //put onto queue all unmarked vertices that are adjacent to V and mark them
+
+
   }
 }
-zero = new Vertex()
-one = new Vertex()
-two = new Vertex()
-three = new Vertex()
-four = new Vertex()
-five = new Vertex()
+zero = new Vertex(0)
+one = new Vertex(1)
+two = new Vertex(2)
+three = new Vertex(3)
+four = new Vertex(4)
+five = new Vertex(5)
 zero.connect(two)
 zero.connect(one)
 zero.connect(five)
