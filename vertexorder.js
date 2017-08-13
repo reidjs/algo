@@ -57,10 +57,9 @@ function dfs(g, v, pre_func = function(){}, post_func = function(){}) {
   pre_func.apply(this, [g,vertex])
   vertex.marked = true
   for(i = 0; i < vertex.adj.length; i++) {
-    //PROBLEM: doesn't work if nodes are two directional
-    p("current", vertex)
+    //p("current", vertex)
     next_vertex = g.v(vertex.adj[i])
-    p("next", next_vertex)
+    //p("next", next_vertex)
     if (!next_vertex.marked)
         dfs(g, next_vertex.num, pre_func, post_func)
   }
@@ -147,7 +146,7 @@ g.addVertex(2)
 g.addVertex(3)
 g.addVertex(5)
 g.connectDirectionally(0,1)
-g.connectDirectionally(1,0)
+//g.connectDirectionally(1,0)
 g.connectDirectionally(0,5)
 g.connectDirectionally(2,3)
 g.connectDirectionally(2,0)
